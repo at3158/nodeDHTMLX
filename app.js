@@ -40,8 +40,6 @@ app.get('/', function(req,res){
 	res.render('index' );
 });
 
-
-
 app.get('/GetBook', function(req,res){
 	res.render('GetBook' );
 });
