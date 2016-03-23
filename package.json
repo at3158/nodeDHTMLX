@@ -4,13 +4,13 @@
   "description": "Demo of dhtmlxGrid with nodeJs backend\r ===================",
   "main": "app.js",
   "dependencies": {
-    "express": "~4.4.2",
+    "express": "3.5.1",
     "express3-handlebars": "~0.5.0",
     "ejs": "^1.0.0",
-    "express": "3.5.1",
     "express-myconnection": "1.0.4",
     "jade": "*",
-    "mysql": "2.2.0"
+    "mysql": "2.2.0",
+    "moment": "~2.12.0"
   },
   "devDependencies": {},
   "scripts": {

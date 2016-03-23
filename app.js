@@ -1,6 +1,7 @@
 var express = require('express');
 var path = require('path');
 var routes = require('./routes');
+var moment=require('moment');
 
 
 var mysql      = require('mysql');
@@ -44,6 +45,14 @@ app.get('/GetBook', function(req,res){
 	res.render('GetBook' );
 });
 
+app.get('/simple', function(req, res){
+	var date = new Date();
+	var formattedDate = moment(date).format('YYYYMMDD');
+	var data = {name: 'Gorilla',nowtime:formattedDate};
+	res.render('simple', data);
+	});
+
+//grid event
 
 app.get('/data', function(req, res){
 	db.query("SELECT * FROM books", function(err, rows){
