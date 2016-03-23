@@ -60,10 +60,12 @@ app.post('/data', function(req, res){
 	var sid = data.gr_id;
 	var tid = sid;
 
+	var id = data.id;
 	var sales  = data.sales;
 	var author = data.author;
 	var title  = data.title;
 	var price  = data.price;
+	var link  =  data.link;
 
 	function update_response(err, result){
 		if (err){
@@ -83,8 +85,8 @@ app.post('/data', function(req, res){
 			[sales, author, title, price, sid],
 			update_response);
 	else if (mode == "inserted")
-		db.query("INSERT INTO books(sales, author, title, price) VALUES (?,?,?,?)",
-			[sales, author, title, price],
+		db.query("INSERT INTO books(sales, author, title, price,link) VALUES (?,?,?,?,?)",
+			[sales, author, title, price,link],
 			update_response);
 	else if (mode == "deleted")
 		db.query("DELETE FROM books WHERE id = ?", [sid], update_response);

@@ -15,11 +15,11 @@
 	function init() {
 		mygrid = new dhtmlXGridObject("grid_here");
 		mygrid.setImagePath("../../codebase/imgs/");
-		mygrid.setHeader("Sales, Author, Title, Price");
-		mygrid.setColumnIds("sales,author,title,price");
-		mygrid.setInitWidths("70,150,*,70");
-		mygrid.setColTypes("dyn,ed,ed,ed");
-		mygrid.setColSorting("int,str,str,int");
+		mygrid.setHeader("Sales, Author, Title, Price,Link,Id");
+		mygrid.setColumnIds("sales,author,title,price,link,id");
+		mygrid.setInitWidths("70,150,*,70,70,70");
+		mygrid.setColTypes("dyn,ed,ed,ed,ed,ed");
+		mygrid.setColSorting("int,str,str,int,str,str");
 		mygrid.setSkin("dhx_skyblue");
 		mygrid.init();
 
@@ -29,11 +29,13 @@
 		dp.init(mygrid);
 		dp.enableDataNames(true);
 		dp.setTransactionMode("POST", false);
+		
+		
 	}
 	function addrow(){
 		var id = mygrid.uid();
 		mygrid.setActive(true);
-		mygrid.addRow(id, "100,New Author,New Book");
+		mygrid.addRow(id, "100,New Author,New Book,0,link1");
 	}
 	function deleterow(){
 		mygrid.deleteSelectedRows();
@@ -41,7 +43,7 @@
 </script>	
 
 <body onload="init();">
-	<div id="grid_here" style="width:550px; height:150px;"></div>
+	<div id="grid_here" style="width:690px; height:150px;"></div>
 	<br>
 	<input style="padding:6px;" type="button" value="Add a new record" onclick="addrow()">
 	<input style="padding:6px;" type="button" value="Delete the selected record" onclick="deleterow()">
